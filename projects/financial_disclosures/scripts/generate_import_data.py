@@ -102,13 +102,13 @@ def identify_judges() -> None:
 
     for person in little_list:
         hit = False
-        judge_name = person['path']
+        judge_name = person["path"]
         searching = judge_name[:15].split("2018")[0]
         for judge in big_list:
             if searching in judge.get("url", ""):
                 # print (searching, judge['url'].split("/")[-1], judge['person_id'])
                 hit = True
-                person['person_id'] = judge['person_id']
+                person["person_id"] = judge["person_id"]
                 break
 
         if not hit:
@@ -131,14 +131,15 @@ def fix_duplicates():
     originals = []
     deduped = []
     for file in complete:
-        if file['path'] not in originals:
-            originals.append(file['path'])
+        if file["path"] not in originals:
+            originals.append(file["path"])
             deduped.append(file)
         else:
-            print("DUPE", file['path'])
+            print("DUPE", file["path"])
 
     with open(f"{ROOT}/../data/deduped_list.json", "w") as w:
         json.dump(deduped, w, indent=2)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
