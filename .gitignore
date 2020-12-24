@@ -161,3 +161,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+/projects/financial_disclosures/data/*
+/projects/financial_disclosures/scripts/settings.py
+/projects/financial_disclosures/data/
